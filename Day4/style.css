@@ -21,6 +21,7 @@ body {
     min-height: 777px;
     border-radius: 26px;
     padding: 62px;
+    box-shadow: 0 76px 27px 0 #061b521a;
 }
 
 ul, ol {
