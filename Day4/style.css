@@ -54,16 +54,19 @@ h1 {
 }
 
 nav {
-    margin-bottom: 56px;
-    li{      
-        border-radius: 8px;
-        font-size: 16px;
-        line-height: 24px;
-        background-color: #FFFFFF;
-        padding: 10px;
-        margin-right: 8px;
+    margin-bottom: 56px;  
+}
+nav li {
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 24px;
+    background-color: #FFFFFF;
+    padding: 10px;
+    margin-right: 8px;
+    transition: ease-in-out 0.5s;
+    &:hover {
+        background-color: #D8DAE2;
     }
-    
 }
 /* header: end */
 /* man: begin */
