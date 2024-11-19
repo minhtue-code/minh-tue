@@ -49,6 +49,19 @@ header, .welcome {
     background-color: #fff;
     color: #5F5B53;
 }
+.testimonial{
+    background-color: #2E2100;
+    color: #FFFFFF;
+i{
+    position: absolute;
+    color: #634700;
+    font-size: 30px;
+}
+}
+.container{
+    max-width: 1170px;
+    margin: 0px auto;
+}
 h1, h2, h3, p, nav, a, ul {
     margin: 0;
 }
@@ -58,5 +71,13 @@ h1, h2, h3, p, nav, a, ul {
     gap: 18px;
     position: absolute;
     top: 42px;
-    right: 150px;
+    right: 0px;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+}
+.left, .right {
+    display: flex;
+    flex-direction: column;
 }

@@ -1,11 +1,19 @@
 /* header begin  */
-header {
+header{
+    position:fixed;
+    z-index: 99;
+    width: 100%;
+}
+.header__inner {
     padding-top: 36px;
     display: flex;
         flex-flow: row wrap;
         justify-content: center;
         align-content: center;
         padding-bottom: 72px;
+}
+header a img{
+    left: 135px;
 }
 header .logo {
     width: 50%;
@@ -26,7 +34,7 @@ header ul {
 }
 /* header end */
 /* main begin */
-.welcome{
+.welcome__inner{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -183,6 +191,8 @@ color: #171100;
 }
 .our-popular-courses {
     padding-bottom: 200px;
+}
+.our-popular-courses__inner{
     position: relative;
 }
 .our-popular-courses h2 {
@@ -267,3 +277,101 @@ color: #171100;
         background-color: #FFB900;
     }
  }
+ .testimonial__inner{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+ }
+ .testimonial .student{
+    width: 50%;
+    
+ }
+ .testimonial h3 {
+    font-family: "Sen";
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 34px;
+    color: #F7F7F7; 
+ }
+ .testimonial span{
+    font-size: 14px;
+    line-height: 26px;
+    color: #BFBCB2;
+ }
+ .testimonial__inner {
+    padding-top: 96px;
+    padding-bottom: 96px;
+ }
+.testimonial__inner .comment{
+    position: relative;
+    p {
+        margin-top: 28px;
+        margin-left: 30px;
+        font-style: italic;
+        font-size: 26px;
+        line-height: 40px;
+    }
+}
+ /* testimonial: end */
+ /* features-cta: begin */
+ .features-cta .container {
+    display:flex;
+    flex-flow: column nowrap;
+    gap: 200px;
+    padding-top: 200px;
+    padding-bottom: 200px;
+ }
+ .features-cta .row {
+    gap: 130px;
+ }
+ .student {
+    position: relative;
+ }
+ .slider-dot {
+    position: absolute;
+    left: 0px;
+    bottom: 20px;
+    display: flex;
+    gap: 6px;
+    i {
+        font-size: 6px;
+        &:hover {
+            color: #FFB900;
+        }
+    }
+ }
+ .features-img {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    #work {
+        margin-top: 34px;
+    }
+ }
+ .features-cta  {
+    h2 {
+        margin-top: 70px;
+        margin-block: 16px;
+        font-weight: 700;
+        font-size: 38px;
+        line-height: 48px;
+        color: #171100;
+    }
+    p {
+        margin-bottom: 16px;
+        font-size: 16px;
+        line-height: 28px;
+        color: #5F5B53;
+    }
+    a {
+        padding-top: 32px;
+    }
+    span{
+        padding: 11px 33px;
+        background-color: #FFB900;
+        color: #FFFFFF;
+        border-radius: 26px;
+    }
+ }
+ /* features-cta: end */
