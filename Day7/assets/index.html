@@ -9,7 +9,23 @@
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/main.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .underline {
+            position: relative;
+            display: inline-block;
+        }
 
+        .underline::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            bottom: 0;
+            left: 0;
+            border-radius: 99px;
+            background-color: blueviolet;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,7 +35,7 @@
                 <a class="logo" href="#"><img src="./imgs/Lesson..png" alt="Lesson"></a>
                 <nav>
                     <ul>
-                        <li><a href="#">Home</a></li>
+                        <li><a class="underline" href="#">Home</a></li>
                         <li><a href="#">Pricing</a></li>
                         <li><a href="#">Reviews</a></li>
                         <li><a href="#">Courses</a></li>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p::first-line {
+            font-weight: 700;
+        }
+
+        p::first-letter {
+            font-size: 44px;
+        }
+
+        p {
+            text-indent: 30px;
+        }
+
+        input[name="username"]::placeholder {
+            color: violet;
+        }
+
+        li {
+            color: brown;
+        }
+
+        li:nth-child(odd)::marker {
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates itaque, voluptatibus minima, ullam officia
+        enim excepturi id fugiat harum nemo soluta hic repellat ducimus porro!</p>
+    <input type="text" name="username" id="" placeholder="username" />
+
+    <ul>
+        <li>iteam1</li>
+        <li>Iteam2</li>
+        <li>Iteam3</li>
+    </ul>
+</body>
+
+</html>
