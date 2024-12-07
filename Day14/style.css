@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li {
+    position: relative;
+    margin: 0 15px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    padding: 10px 15px;
+    display: block;
+    transition: background 0.3s;
+}
+
+.nav-list a:hover {
+    background: #f4f4f4;
+}
+
+.dropdown .mega-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 800px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.dropdown:hover .mega-menu {
+    display: grid;
+}
+
+.menu-column h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.menu-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-column ul li {
+    margin-bottom: 8px;
+}
+
+.menu-column ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.menu-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}

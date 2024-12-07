@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega Menu Hover</title>
+    <style>
+        /* Reset CSS */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 20px;
+        }
+
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d32f2f;
+            float: left;
+        }
+
+        .nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav>li {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 15px;
+            display: block;
+            font-size: 16px;
+        }
+
+        .nav a:hover {
+            color: #d32f2f;
+        }
+
+        /* Mega Menu Styling */
+        .mega-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 1000px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            z-index: 10;
+        }
+
+        .dropdown:hover .mega-menu {
+            display: grid;
+        }
+
+        .menu-column h4 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .menu-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .menu-column ul li a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .menu-column ul li a:hover {
+            color: #d32f2f;
+        }
+
+        .menu-images img {
+            width: 100%;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-images img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">CANIFA</div>
+        <ul class="nav">
+            <li><a href="#">BLACK NOVEMBER</a></li>
+            <li class="dropdown">
+                <a href="#">NỮ</a>
+                <div class="mega-menu">
+                    <div class="menu-column">
+                        <h4>Hàng mới</h4>
+                        <ul>
+                            <li><a href="#">Hàng mới về</a></li>
+                            <li><a href="#">Hyper Prep</a></li>
+                            <li><a href="#">Knit wear</a></li>
+                            <li><a href="#">City Nomad</a></li>
+                        </ul>
+                        <h4>Nổi bật</h4>
+                        <ul>
+                            <li><a href="#">Black November</a></li>
+                            <li><a href="#">Giá tốt</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-column">
+                        <h4>Danh mục sản phẩm</h4>
+                        <ul>
+                            <li><a href="#">Áo phông/Áo thun</a></li>
+                            <li><a href="#">Áo nỉ & Áo Hoodie</a></li>
+                            <li><a href="#">Áo khoác</a></li>
+                            <li><a href="#">Áo giữ nhiệt</a></li>
+                            <li><a href="#">Quần nỉ</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-column">
+                        <h4>Phụ kiện</h4>
+                        <ul>
+                            <li><a href="#">Chăn</a></li>
+                            <li><a href="#">Khăn mặt</a></li>
+                            <li><a href="#">Khăn tắm</a></li>
+                            <li><a href="#">Khăn quàng cổ</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-images">
+                        <img src="https://via.placeholder.com/200x300" alt="Hình 1">
+                        <img src="https://via.placeholder.com/200x300" alt="Hình 2">
+                    </div>
+                </div>
+            </li>
+            <li><a href="#">NAM</a></li>
+            <li><a href="#">BÉ GÁI</a></li>
+            <li><a href="#">BÉ TRAI</a></li>
+            <li><a href="#">CANIFA S</a></li>
+        </ul>
+    </header>
+</body>
+
+</html>
