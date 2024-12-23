@@ -35,7 +35,6 @@ const getProductsName = product.map((item) => item.title);
 console.log(getProductsName);
 
 const productNew = product.map((item) => {
-  // tim cach de tao ban ra ban sao cua item, sau do thay doi tren ban sao.
   item.amount = item.price * item.quantily * (1 - item.discount);
   return item;
 });
