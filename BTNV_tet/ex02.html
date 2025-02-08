@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            transition: background 0.5s;
+        }
+
+        .dark-mode {
+            background: black;
+            color: white;
+        }
+
+        .slideshow-container {
+            max-width: 800px;
+            margin: auto;
+            position: relative;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .title {
+            margin: 10px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .buttons {
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .toggle-dark {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="toggle-dark" onclick="toggleDarkMode()">Drack Mode</button>
+    <h2>Slideshow</h2>
+    <div class="slideshow-container">
+        <img id="slideImage" src="" alt="Slide">
+        <div class="title" id="slideTitle"></div>
+    </div>
+    <div class="buttons">
+        <button onclick="prevSlide()">Prev</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+    <script>
+        const slidesData = [
+            { image: "https://scr.vn/wp-content/uploads/2020/07/%E1%BA%A2nh-Li%C3%AAn-Minh-Full-HD-%C4%90%E1%BA%B8P.jpg", title: "Slide 1" },
+            { image: "https://shopgarena.net/wp-content/uploads/2022/08/Top-anh-Lien-Minh-Huyen-Thoai-dep.jpg", title: "Slide 2" },
+            { image: "https://bloggame.net/uploads/worigin/2020/03/28/hinhnenlienminhhuyenthoai4k15e7ec3c27825c_5a75a1d905dd7a01d068e5fcba4fc69a.jpg", title: "Slide 3" },
+            {
+                image: "https://scr.vn/wp-content/uploads/2020/07/%E1%BA%A2nh-n%E1%BB%81n-Li%C3%AAn-minh-huy%E1%BB%81n-tho%E1%BA%A1i-3d-%C4%91%E1%BA%B9p-ch%E1%BA%A5t.jpg",
+                title: "Slide 4"
+            },
+        ];
+
+        let currentIndex = 0;
+        function showSlide() {
+            document.getElementById("slideImage").src = slidesData[currentIndex].image;
+            document.getElementById("slideTitle").textContent = slidesData[currentIndex].title;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slidesData.length;
+            showSlide();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slidesData.length) % slidesData.length;
+            showSlide();
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        setInterval(nextSlide, 3000);
+        showSlide();
+    </script>
+</body>
+
+</html>

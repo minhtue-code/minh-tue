@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chia Bill</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 300px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+
+        button {
+            background: blue;
+            color: white;
+            padding: 8px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Chia Bill Nhóm</h2>
+        <label>Tổng bill</label>
+        <input type="number" id="totalBill" placeholder="Nhập tổng tiền">
+
+        <label>Số người</label>
+        <input type="number" id="peopleCount" placeholder="Nhập số người">
+
+        <label>Tiền tip</label>
+        <input type="number" id="tipAmount" placeholder="Nhập tiền tip">
+
+        <button onclick="calculateBill()">Tính tiền</button>
+
+        <div class="result" id="totalResult"></div>
+        <div class="result" id="perPersonResult"></div>
+    </div>
+
+    <script>
+        function calculateBill() {
+            let totalBill = parseFloat(document.getElementById("totalBill").value);
+            let peopleCount = parseInt(document.getElementById("peopleCount").value);
+            let tipAmount = parseFloat(document.getElementById("tipAmount").value);
+
+            if (isNaN(totalBill) || totalBill <= 0) {
+                alert("Tổng bill phải lớn hơn 0!");
+                return;
+            }
+            if (isNaN(peopleCount) || peopleCount <= 0) {
+                alert("Số người phải là số nguyên dương!");
+                return;
+            }
+            if (isNaN(tipAmount) || tipAmount < 0 || tipAmount > totalBill) {
+                alert("Tiền tip phải nhỏ hơn hoặc bằng tổng bill!");
+                return;
+            }
+
+            let totalPay = totalBill + tipAmount;
+            let perPersonPay = totalPay / peopleCount;
+
+            document.getElementById("totalResult").innerText = "Tổng tiền: " + totalPay.toFixed(2) + " VND";
+            document.getElementById("perPersonResult").innerText = "Mỗi người trả: " + perPersonPay.toFixed(2) + " VND";
+        }
+    </script>
+
+</body>
+
+</html>

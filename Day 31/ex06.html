@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            border-radius: 8px;
+            border: 2px solid #ccc;
+
+        }
+
+        .colorful {
+            border: 2px solid red;
+            box-shadow: 0 0 10px rgba(47, 218, 13, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <button>Choose your plan</button>
+    <div class="box free">
+        <h2>Noi dung goi free</h2>
+        <ul>
+            <li>gioi hanj dung luong</li>
+            <li>dung thu 30 ngay</li>
+            <li>so luong nguoi dung: 30 ngay</li>
+        </ul>
+    </div>
+    <div class="box premium">
+        <h2>30$/month</h2>
+        <ul>
+            <li>khong gioi han dung uong</li>
+            <li>su dung tron doi</li>
+            <li>so luong nguoi dung: 100</li>
+        </ul>
+    </div>
+    <script>
+        let listBoxes = document.getElementsByClassName("box");
+        console.log(listBoxes);
+        for (let i = 0; i < listBoxes.length; i++) {
+            listBoxes[i].addEventListener("click", function () {
+                for (let j = 0; j < listBoxes.length; j++) {
+                    listBoxes[j].classList.remove("colorful");
+                }
+                this.classList.add("colorful");
+            });
+        }
+
+    </script>
+</body>
+
+</html>

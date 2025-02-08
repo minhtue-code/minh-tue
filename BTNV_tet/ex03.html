@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bói Bài Tarot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+
+        .tarot-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: 2px solid transparent;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        button:hover {
+            background-color: #218838;
+            border-color: #007bff;
+        }
+
+
+        .card-name {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tarot-container">
+        <h2>Bói Bài Tarot</h2>
+        <button onclick="drawCard()">Rút Bài</button>
+        <div id="cardResult">
+            <p class="card-name"></p>
+            <p class="card-description"></p>
+        </div>
+    </div>
+
+    <script>
+        const tarotDeck = [
+            { name: "The Fool", description: "Khởi đầu mới, cơ hội và niềm tin vào tương lai." },
+            { name: "The Magician", description: "Sự sáng tạo, kiểm soát và thành công." },
+            { name: "The High Priestess", description: "Trực giác mạnh mẽ và sự thấu hiểu sâu sắc." },
+            { name: "The Lovers", description: "Tình yêu, lựa chọn và sự kết nối." },
+            { name: "The Chariot", description: "Quyết tâm, kiểm soát và chiến thắng." },
+            { name: "Death", description: "Kết thúc, tái sinh và sự thay đổi lớn." },
+            { name: "The Sun", description: "Niềm vui, thành công và sự rõ ràng." },
+            { name: "The Moon", description: "Sự huyền bí, trực giác và cảm xúc tiềm ẩn." },
+            { name: "King of Wands", description: "Lãnh đạo, tầm nhìn và sự quyết đoán." }
+        ];
+
+        function drawCard() {
+            const randomIndex = Math.floor(Math.random() * tarotDeck.length);
+            const card = tarotDeck[randomIndex];
+            document.querySelector(".card-name").textContent = card.name;
+            document.querySelector(".card-description").textContent = card.description;
+        }
+    </script>
+
+</body>
+
+</html>

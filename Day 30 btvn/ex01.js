@@ -18,7 +18,7 @@ for (let i = 0; i < menu.length; i++) {
     const a = document.createElement("a");
     a.href = "#";
     a.textContent = menu[i].name;
-    a.style.fontSize = "30px";
+    a.style.fontSize = "32px";
     li.appendChild(a);
 
     const subMenu = document.createElement("ul");
@@ -28,7 +28,7 @@ for (let i = 0; i < menu.length; i++) {
         const subA = document.createElement("a");
         subA.href = "#";
         subA.textContent = menu[j].name;
-        subA.style.fontSize = "16px";
+        subA.style.fontSize = "28px";
         subLi.appendChild(subA);
         subMenu.appendChild(subLi);
       }

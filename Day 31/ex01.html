@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 class="main-title" id="title" style="font-size: 32px">tieu de chinh</h1>
+    <h2></h2>
+    <script>
+        let h1ElementC1 = document.getElementById("title");
+        let h1ElementC2 = document.getElementsByClassName("main-title")[0];
+        let h1ElementC3 = document.getElementsByTagName("h1");
+
+        // document.body.innerHTML = `<div class="box">
+        // <p>noi dung</p>
+        // </div>`;
+        h1ElementC1.outerText = "Noi dung cua tieu de update";
+
+    </script>
+</body>
+
+</html>

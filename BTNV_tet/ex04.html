@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thần Số Học</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            width: 200px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            border: 2px solid #007bff;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Thần Số Học</h2>
+        <p>Nhập ngày tháng năm sinh của bạn:</p>
+        <input type="text" id="dob" placeholder="dd/mm/yyyy">
+        <br>
+        <button onclick="calculateLifePath()">Tính Số Chủ Đạo</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        const descriptions = {
+            1: "Bạn là người độc lập, mạnh mẽ và có khả năng lãnh đạo.",
+            2: "Bạn là người hòa đồng, nhạy bén và biết lắng nghe.",
+            3: "Bạn sáng tạo, lạc quan và luôn tràn đầy năng lượng.",
+            4: "Bạn là người thực tế, có tổ chức và làm việc chăm chỉ.",
+            5: "Bạn thích tự do, thích khám phá và là người thích mạo hiểm.",
+            6: "Bạn quan tâm đến gia đình, yêu thương và chăm sóc người khác.",
+            7: "Bạn là người thích suy ngẫm, nghiên cứu và khám phá.",
+            8: "Bạn là người kiên trì, có tham vọng và luôn nỗ lực hết mình.",
+            9: "Bạn là người có tấm lòng nhân ái, giúp đỡ và quan tâm đến người khác."
+        };
+
+        function calculateLifePath() {
+            let dob = document.getElementById("dob").value;
+            let digits = dob.replace(/\D/g, "");
+            let sum = digits.split("").reduce((acc, num) => acc + parseInt(num), 0);
+
+            while (sum > 9) {
+                sum = sum.toString().split("").reduce((acc, num) => acc + parseInt(num), 0);
+            }
+
+            document.getElementById("result").innerHTML = `Số Chủ Đạo của bạn là <strong>${sum}</strong>: ${descriptions[sum]}`;
+        }
+    </script>
+
+</body>
+
+</html>

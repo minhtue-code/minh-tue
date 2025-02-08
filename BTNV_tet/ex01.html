@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: auto;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-radius: 5px;
+            background: white;
+            margin: 5px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        button {
+            margin-left: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Todo App</h2>
+    <input type="text" id="todoInput" placeholder="Nhập công việc...">
+    <button onclick="addTodo()">Thêm</button>
+    <select id="filter" onchange="filterTodos()">
+        <option value="all">Tất cả</option>
+        <option value="completed">Đã hoàn thành</option>
+        <option value="pending">Chưa hoàn thành</option>
+    </select>
+    <ul id="todoList"></ul>
+
+    <script>
+        let todos = JSON.parse(localStorage.getItem('todos')) || [];
+        function saveTodos() { localStorage.setItem('todos', JSON.stringify(todos)); }
+        function renderTodos() {
+            const filter = document.getElementById('filter').value;
+            document.getElementById('todoList').innerHTML = '';
+            todos.forEach((todo, index) => {
+                if (filter === 'completed' && !todo.completed) return;
+                if (filter === 'pending' && todo.completed) return;
+                const li = document.createElement('li');
+                li.className = 'todo-item';
+                li.innerHTML = `<span onclick="toggleComplete(${index})" class="${todo.completed ? 'completed' : ''}">${todo.text}</span>
+                    <button onclick="editTodo(${index})">Sửa</button>
+                    <button onclick="deleteTodo(${index})">Xóa</button>`;
+                document.getElementById('todoList').appendChild(li);
+            });
+        }
+        function addTodo() {
+            const text = document.getElementById('todoInput').value;
+            if (text.trim()) {
+                todos.push({ text, completed: false });
+                saveTodos();
+                renderTodos();
+                document.getElementById('todoInput').value = '';
+            }
+        }
+        function toggleComplete(index) {
+            todos[index].completed = !todos[index].completed;
+            saveTodos();
+            renderTodos();
+        }
+        function editTodo(index) {
+            const newText = prompt('Sửa công việc:', todos[index].text);
+            if (newText !== null) {
+                todos[index].text = newText;
+                saveTodos();
+                renderTodos();
+            }
+        }
+        function deleteTodo(index) {
+            if (confirm('Bạn có chắc chắn muốn xóa?')) {
+                todos.splice(index, 1);
+                saveTodos();
+                renderTodos();
+            }
+        }
+        function filterTodos() { renderTodos(); }
+        renderTodos();
+    </script>
+</body>
+
+</html>

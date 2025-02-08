@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dark-mode {
+            background-color: blue;
+            color: brown;
+        }
+    </style>
+</head>
+
+<body class="dark-mode">
+    <button onclick="toggleTheme()">Toggle theme</button>
+    <h1>het tien</h1>
+    <p class="content description">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A distinctio vero eos quam velit ipsa! Dignissimos
+        molestias inventore voluptatibus rem, illo magnam perferendis necessitatibus deleniti velit! Dolor iusto iure
+        ullam!
+    </p>
+    <script>
+        let contentElement = document.getElementsByClassName("content")[0];
+        console.log(contentElement);
+        console.log(contentElement.className);
+    </script>
+</body>
+
+</html>

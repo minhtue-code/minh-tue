@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./">Trang chủ</a></li>
+                <li><a href="./san-pham">Sản phẩm</a></li>
+                <li><a href="./bai-viet.html">Bài viết</a></li>
+                <li><a href="./bai-viet/lap-trinh-c">Lập trình C++</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        const dataMenu = [
+            { id: 1, name: "Trang chủ", slug: "/" },
+            { id: 2, name: "Sản phẩm", slug: "/san-pham" },
+            { id: 3, name: "Bài viết", slug: "/bai-viet" },
+            { id: 4, name: "Lập trình c++", slug: "/lap-trinh-c", parentId: 3 },
+        ];
+        function generateMenu(data, parentId = null, level = 1) {
+            const menu = document.createElement("ul");
+
+            const items = data.filter(item => item.parentId === parentId);
+
+            items.forEach(item => {
+                const li = document.createElement("li");
+                li.classList.add(`level-${level}`);
+                const a = document.createElement("a");
+                a.href = item.slug;
+                a.textContent = item.name;
+
+                li.appendChild(a);
+
+                const childMenu = generateMenu(data, item.id, level + 1);
+                if (childMenu.children.length > 0) {
+                    li.appendChild(childMenu);
+                }
+
+                menu.appendChild(li);
+            });
+
+            return menu;
+        }
+
+        const menuContainer = document.getElementById("menu");
+        const menu = generateMenu(dataMenu);
+        menuContainer.appendChild(menu)
+
+    </script>
+</body>
+
+</html>
