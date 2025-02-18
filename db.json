@@ -38,6 +38,11 @@
     }
   ],
   "users": [
+    {
+      "email": "kieuminhtue2003@gmail.com",
+      "password": "$2a$10$jzQI0iQ.Isc7Lp2/mUMCWOzr8SHEz4uImYazGN6m5JgCJw3xP37bC",
+      "id": 1
+    }
   ],
   "tasks": [
     {
