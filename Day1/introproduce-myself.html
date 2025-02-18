@@ -1,57 +1,93 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giới thiệu bản thân    </title>
+    <title>Game Style Login</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            position: absolute;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .login-container input {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .login-container button {
+            background: cyan;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Giới thiệu bản thân</h1>
-    <section>
-    <h2>Thông tin chính</h2>
-    <image src=".\tue.jpeg" alt = "Hinhf loiox" width = "300" height = "300">
-    
-    <p> <b>Họ và tên:</b> Kiều Minh Tuệ</p>
-    <p><b>Sinh năm:</b> 2003</p>
-    <p><b>Quê quán:</b> Vĩnh Thịnh - Vĩnh Tường - Vĩnh Phúc</p>
-    <p><b>Địa chỉ:</b> Cổ Nhuế - Bắc Từ Liêm - Hà Nội</p>
-    <p><b>Email:</b> <u>kieuminhtue2003@gmail.com</u></p>
-    </section>
-    <hr>
-    <section>
-    <h2>Học Vấn</h2>
-    <ul>
-        <li><b>Tốt nghiệp Mầm Non năm 2009</b></li>
-        <li><b>Tốt nghiệp Tiểu Học năm 2014</b></li>
-        <li><b>Tốt nghiệp THCS năm 2018</b></li>
-        <li><b>Tốt nghiệp THPT năm 2021</b></li>
-        <li><b>Tốt nghiệp Đại Học Quốc Phòng năm 2024</b></li>
-    </ul>
-    <hr>
-    </section>
-    <section>
-        <h2>Sở trường</h2>
-        <ul>
-            <li>Bóng đá</li>
-            <li>Cầu lông</li>
-            <li>Chơi game</li>
-            <li>Ăn uống</li>
-        </ul>
-    <hr>
-    </section>
-    <section>
-        <h2>Kỹ năng chính</h2>
-        <ul>
-            <li>Sale</li>
-        </ul>
-    </section>
-    <hr>
-    <section>
-        <h2>Liên hệ</h2>
-        <ul>
-            <li><b>Facebook : </b> <a href = "https://www.facebook.com/profile.php?id=100071972688665&locale=vi_VN">Facebook</a></li>
-            <li><b>Tiktok :</b> <a href = "https://www.tiktok.com/@min.network?lang=vi-VN">Tiktok</a></li>
-        </ul>
-    </section>
+    <div class="login-container">
+        <h2>Login</h2>
+        <input type="text" placeholder="Username" id="username">
+        <input type="password" placeholder="Password" id="password">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        function login() {
+            alert("Login successful! Redirecting...");
+            window.location.href = "gallery.html";
+        }
+
+        // Three.js Background
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+        const material = new THREE.MeshStandardMaterial({ color: 0x00ffcc, wireframe: true });
+        const torus = new THREE.Mesh(geometry, material);
+        scene.add(torus);
+
+        const light = new THREE.PointLight(0xffffff);
+        light.position.set(10, 10, 10);
+        scene.add(light);
+
+        camera.position.z = 50;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            torus.rotation.x += 0.01;
+            torus.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
 </body>
+
 </html>

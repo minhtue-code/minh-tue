@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>fetch</h1>
+    <section id="products"></section>
+    <script>
+        const productsSection = document.getElementById("products");
+
+        fetch("http://localhost:3000/products")
+            .then((response) => response.json())
+            .then((data) => {
+                const ulElement = document.createElement("ul");
+
+                data.forEach((item) => {
+                    console.log(item);
+
+                    const liElement = document.createElement("li");
+                    liElement.innerHTML = `
+                        <h2>${item.title}</h2>
+                        <p>Price: ${item.price}</p>
+                        <img src="${item.thumbnail}" alt="${item.title}" width="100" />
+
+                    `;
+                    ulElement.appendChild(liElement);
+                });
+
+                productsSection.appendChild(ulElement);
+            })
+            .catch((error) => console.log("Lỗi khi fetch dữ liệu:", error));
+    </script>
+</body>
+
+</html>
