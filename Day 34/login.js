@@ -12,7 +12,6 @@ document
         if (data.length > 0) {
           const userData = data[0];
 
-          // Kiểm tra password
           if (userData.password === user.password) {
             localStorage.setItem("userId", userData.id);
             alert("Đăng nhập thành công! ");
